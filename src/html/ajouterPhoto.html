@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ajouter une photo</title>
+		<link rel="stylesheet" href="../css/home_login.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"
+		/>
+	</head>
+
+	<header class="grid">
+		<div class="recherche" method="GET" action="searchbar.php">
+			<form>
+				<input id="search" type="search" name="searchbar" placeholder="Recherche..." ></input>
+			</form>
+		</div>
+		
+		<div class="logo">
+			<img src="../images/logo.png" alt="logo-app"/>
+		</div>
+
+		<div class="icon">
+			<img src="../images/icon_login.png" alt="icon-login"/>
+			<a href="profil.html">[$username]</a>
+			<a href="index.html">Deconnexion</a>	
+		</div>		
+	</header>
+
+	<div class="menu">
+		<ul class="grid">
+		  <li><a href="home_login.html">Accueil</a></li>
+		  <li><a href="mesPhotos.html">Mes Photos</a></li>
+		  <li><a href='ajouterPhoto.html'>Ajouter Photos</a></li>
+		  <div class="deroulant">
+		  <li><a href="#">Galeries</a></li>
+		  <ul class="enfant">
+			  <li><a href="touteGaleries.html">Toutes Les Galeries</a></li>
+			  <li><a href="galeriesPartage.html">Galeries Partagées</a></li>
+			  <li><a href="mesGaleries.html">Galeries Privées</a></li>
+		  </ul>
+		  </div>
+		  <li><a href="creerGalerie.html">Créer Galerie</a></li>
+		  <li><a href="profil.html">Profil</a></li>
+		</ul>
+	</div>
+
+	<body>
+		<main class="grid addPhoto">
+			<h1>AJOUTER PHOTO</h1>
+			<hr />
+			<form class="grid" action="post">
+				<div class="namePhoto">
+					<label for="namePhoto">Nom : <span>*</span></label>
+					<br />
+					<input
+						type="text"
+						name="namePhoto"
+						placeholder="Entrez le nom de la photo"
+					/>
+				</div>
+				<div class="keywordsPhoto">
+					<label for="keywordsPhoto">Mots-clés : <span>*</span></label>
+					<br />
+					<input
+						class="select"
+						type="text"
+						name="keywordsPhoto"
+						placeholder="Entrez un ou plusieurs mots-clés"
+					/>
+				</div>
+				<div class="gallery">
+					<label for="gallery">Galeries :</label>
+					<br />
+					<select
+						class="selectpicker"
+						multiple
+						data-live-search="true"
+						title="Sélectionner des galeries"
+						name="gallery"
+					>
+						<option>Japon</option>
+						<option>Chine</option>
+						<option>Corée</option>
+					</select>
+				</div>
+				<div class="importPhoto">
+					<label for="importPhoto">Importer Photo : <span>*</span></label>
+					<br />
+					<input name="importPhoto" type="file" onchange="readURL(this);" />
+          <img id="photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Image importée" />
+					<p>Votre photo s'affichera ici</p>
+				</div>
+				<input class="sendForm" type="submit" value="Ajouter la photo"></input>
+			</form>
+		</main>
+
+
+		<footer class="grid">
+			<div class="socialNetworks">
+				<a href="https://github.com/RichardJohnRx/MediaPhoto"><img src="../images/icon_github.svg" alt="Logo de Github" width="30px"/></a>
+				<a href="https://www.univ-lorraine.fr/"><img src="../images/icon_lorraine.svg" alt="Logo de l'Université de Lorraine" width="95px"/></a>
+			</div>
+			
+			<p>© Tous droits réservés à l'IUT Nancy-Charlemagne</p>
+		</footer>
+
+		<!-- Importation de la méthode de prévisualition des images -->
+		<script src="../js/singlePreview.js"></script>
+
+		<!-- Importation de jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!-- Importation de popper -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+		<!-- Importation du script des select -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	</body>
+</html>
